@@ -28,7 +28,7 @@ DB_NAME = "financial_protocols.db"
 NOTEBOOK_PATH = "/mnt/data/notebook32601a58a7.ipynb"
 os.makedirs(HOUSEHOLDS_DIR, exist_ok=True)
 
-# -------------------- Household helpers --------------------
+# -------------------- HH Helpers --------------------
 def household_file_path(hid: str) -> str:
     return os.path.join(HOUSEHOLDS_DIR, f"{hid}.json")
 
@@ -98,7 +98,7 @@ def search_financial_protocols(snapshot: str) -> str:
     conn.close()
     return "\n".join(outputs) if outputs else "No protocols triggered. Continue monitoring."
 
-# -------------------- Core tools & agents --------------------
+# -------------------- tools & agents --------------------
 def suggest_budget_actions(hh: Dict[str,Any]) -> str:
     tips = []
     if hh["monthly_expenses"] > hh["monthly_income"]:
@@ -195,7 +195,7 @@ def send_household_alert(hid: str, message: str) -> str:
 def notify_community_worker(contact_id: str, message: str) -> str:
     log = f"[COMMUNITY WORKER NOTIFY] To {contact_id}: {message}"; logger.info(log); return log
 
-# -------------------- ADK Agents (named) --------------------
+# -------------------- ADK Agents --------------------
 BudgetCoach = None; CreditAdvisor = None; FraudWatcher = None; GuardianOrchestrator = None; retry_config=None; gemini_model=None
 
 if ADK_AVAILABLE:
@@ -346,7 +346,7 @@ def run_proactive_monitor(hids: List[str], cycles: int = 3, shock_chance: float 
     logs.append("ProactiveMonitor complete.")
     return logs
 
-# -------------------- Streamlit UI: full panels --------------------
+# -------------------- Streamlit UI --------------------
 st.set_page_config(page_title="SAFER", layout="wide")
 st.title("SAFER")
 st.subheader("Support Agents for Financial Early-warning and Resilience")
