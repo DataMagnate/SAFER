@@ -1,0 +1,16 @@
+{
+  "id": "hh_0010",
+  "name": "Juan Dela Cruz",
+  "baseline_balance": 1000.0,
+  "monthly_income": 500.0,
+  "monthly_expenses": 4000.0,
+  "safety_net_contacts": {
+    "community_worker": "CW-hh_0010"
+  },
+  "preferences": {
+    "communication_channel": "phone"
+  },
+  "credit_history": {
+    "score": 100
+  }
+}

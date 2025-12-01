@@ -1,0 +1,4 @@
+streamlit
+nest_asyncio
+google-genai
+google-adk
